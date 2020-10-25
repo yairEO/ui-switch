@@ -1,0 +1,114 @@
+.switch{
+  $stripes-size  : 4px !default;
+  $stripes-color : white !default;
+
+  --color-bg            : #E1E1E1;
+  --color-bg-on         : #16B5FF;
+  --thumb-color-on      : white;
+  --thumb-color-off     : var(--thumb-color-on);
+  --thumb-scale         : 1;
+  --size                : 16px;
+  --duration            : .18s;
+  --width-multiplier    : 2.5;
+  --thumb-animation-pad : 15%;
+
+  $self: &;
+
+  @keyframes switchMoveThumb{
+    50%{ padding: 0 var(--thumb-animation-pad) }
+  }
+
+  @keyframes switchMoveThumb1{
+    50%{ padding: 0 var(--thumb-animation-pad) }
+  }
+
+  user-select: none;
+  display: inline-flex;
+  align-items: center;
+
+  &--textRight{
+    #{ $self }__label {
+      order: 10;
+      padding: 0 0 0 .4em;
+    }
+  }
+
+  > div {
+    cursor: pointer;
+  }
+
+  &__label{
+    order: 0;
+    padding-right: .4em;
+    color: var(--label-color);
+  }
+
+  &__gfx{
+    --thumb-left: 0%;
+    --transform: translateX(calc(var(--thumb-left) * -1)) scale(var(--thumb-scale));
+
+    order: 5;
+    padding: 3px;
+    position: relative;
+    background: var(--bg, var(--color-bg));
+    border-radius : 50px;
+    width         : calc(var(--size) * var(--width-multiplier));
+    transition    : var(--duration);
+    background-size: $stripes-size $stripes-size;
+
+    &::before{
+      content   : '';
+      display   : block;
+      position  : relative;
+      left      : var(--thumb-left);
+      background: var(--thumb-color, var(--thumb-color-off));
+      border-radius : var(--size);
+      width         : var(--size);
+      height        : var(--size);
+      transform     : var(--transform);
+      transition    : var(--duration);
+      animation     : switchMoveThumb var(--duration) ease 1;
+    }
+  }
+
+  input{
+    // input must be hidden via CSS in order for "tabindex" to work
+    position: absolute;
+    opacity: 0;
+
+    &[disabled]{
+      + div{
+        background-image: linear-gradient(45deg,
+          #{$stripes-color} 25%,
+          transparent       25%,
+          transparent       50%,
+          #{$stripes-color} 50%,
+          #{$stripes-color} 75%,
+          transparent       75%);
+      }
+    }
+
+    &:disabled ~ div{
+      cursor: not-allowed;
+    }
+
+    &:indeterminate + div{ --thumb-left: 50%; }
+
+    &:checked + div{
+      --bg: var(--color-bg-on);
+      --thumb-left: 100%;
+      --thumb-color: var(--thumb-color-on);
+
+      &::before{
+        animation-name: switchMoveThumb1;
+      }
+    }
+
+    // accessibility (keyboard navigation)
+    &:focus{
+      & + div{ outline: 1px dotted silver; }
+      // https://css-tricks.com/the-focus-visible-trick/
+      &:not(:focus-visible) + div { outline: none }
+    }
+  }
+}
