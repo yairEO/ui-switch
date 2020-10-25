@@ -28,9 +28,23 @@
   👉 <a href='https://codepen.io/vsync/pen/gOrVgXV' target='_blank'>See Demo</a> 👈
 </h3>
 
-## Usage Examples:
+## install:
+
+```
+> npm install @yaireo/ui-switch
+```
+
+## Usage
 
 ```js
+import Switch from '@yaireo/ui-switch'
+import '@yaireo/ui-switch/src/switch.scss'
+// or the pre-compiled CSS:
+// import '@yaireo/ui-switch/dist/switch.css'
+```
+
+```js
+// use the component in JSX:
 <form>
   <Switch checked={checked} onChange={onSwitchChange}/>
   <Switch textRight>Label on the right</Switch>

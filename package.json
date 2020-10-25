@@ -32,7 +32,7 @@
         "name": "Yair Even-Or",
         "email": "vsync.design@gmail.com"
     },
-    "main": "./dist/Switch.js",
+    "main": "./dist/Switch.react.js",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/yairEO/ui-switch.git"
