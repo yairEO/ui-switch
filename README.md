@@ -24,15 +24,16 @@
   <a href='https://codepen.io/vsync/pen/gOrVgXV'>
     <img src="./demo.png?sanitize=true" />
   </a>
+<br>
 <p>
 
-<p>
-  I wanted a solid, beautiful *Switch* component, with absolutly minimal footprint.
 
-  I did not want to install a full components-lib, even if I would be using only a single component, I wanted it to be really lightweight
-  but also highly customizable, and [CSS variables](https://github.com/yairEO/ui-switch/blob/master/src/switch.scss#L5-L14) are perfect for this, since they are much better than pre-compiled variabled, since they
-  are computed on-the-fly, the CSS itself if kept to a minimum, when wanted to create different design versions of the Switch component.
-</p>
+I wanted a solid, beautiful *Switch* component, with absolutly minimal footprint.
+
+I did not want to install a full components-lib, even if I would be using only a single component, I wanted it to be really lightweight
+but also highly customizable, and [CSS variables](https://github.com/yairEO/ui-switch/blob/master/src/switch.scss#L5-L14) are perfect for this, since they are much better than pre-compiled variabled, since they
+are computed on-the-fly, the CSS itself if kept to a minimum, when wanted to create different design versions of the Switch component.
+
 
 ## install:
 
