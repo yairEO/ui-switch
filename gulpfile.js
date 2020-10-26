@@ -7,7 +7,7 @@ var gulp = require('gulp'),
     }, {});
 
 const babelConfig = {
-    presets: ['@babel/env', '@babel/preset-react'],
+    presets: ['@babel/env', ['@babel/preset-react']],
     plugins: ['@babel/proposal-object-rest-spread', '@babel/plugin-transform-destructuring']
 }
 

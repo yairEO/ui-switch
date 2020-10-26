@@ -1,4 +1,4 @@
-const { useRef, useEffect } = React
+import React, { useRef, useEffect } from 'react'
 
 const cx = (...list) => list.filter(Boolean).join(' ')
 

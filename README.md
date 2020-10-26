@@ -13,10 +13,11 @@
   <a href='https://yaireo.github.io/ui-switch'>ui-switch</a> - A React component
 </h1>
 
-<p align="center">
-  Beautiful switch (based on native checkbox input) component which are highly customizable using CSS variables (custom properties).
-  Minimal HTML footprtint,
-<p>
+<h3 align="center">
+  👉 Demos: <a href='https://codepen.io/vsync/pen/gOrVgXV' target='_blank'>Codepen</a> |
+  <a href='https://codesandbox.io/s/ui-switch-demo-page-8ij3p?file=/src/App.js' target='_blank'>Codesandbox</a>
+   👈
+</h3>
 
 <p align="center">
   <a href='https://codepen.io/vsync/pen/gOrVgXV'>
@@ -24,14 +25,18 @@
   </a>
 <p>
 
-<h3 align="center">
-  👉 <a href='https://codepen.io/vsync/pen/gOrVgXV' target='_blank'>See Demo</a> 👈
-</h3>
+<p>
+  I've created this after wanting a solid, beautiful Swtich component for another project, with absolutly minimal footprint.
+
+  I did not want to install a full components-lib, even if I would be using only a single component, I wanted it to be really lightweight
+  but also highly customizable, and [CSS variables](https://github.com/yairEO/ui-switch/blob/master/src/switch.scss#L5-L14) are perfect for this, since they are much better than pre-compiled variabled, since they
+  are computed on-the-fly, the CSS itself if kept to a minimum, when wanted to create different design versions of the Switch component.
+</p>
 
 ## install:
 
 ```
-> npm install @yaireo/ui-switch
+npm i @yaireo/ui-switch
 ```
 
 ## Usage

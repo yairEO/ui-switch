@@ -9,10 +9,18 @@
 }(this, function() {
 "use strict";
 
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports["default"] = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function _getRequireWildcardCache() { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
 function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
 
@@ -35,10 +43,6 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
-var _React = React,
-    useRef = _React.useRef,
-    useEffect = _React.useEffect;
 
 var cx = function cx() {
   for (var _len = arguments.length, list = new Array(_len), _key = 0; _key < _len; _key++) {
@@ -69,15 +73,15 @@ var Switch = function Switch(_ref3) {
       indeterminate = _ref3.indeterminate,
       cssVars = _objectWithoutProperties(_ref3, ["checked", "onChange", "children", "tabIndex", "className", "textRight", "disabled", "indeterminate"]);
 
-  var inputRef = useRef();
-  useEffect(function () {
+  var inputRef = (0, _react.useRef)();
+  (0, _react.useEffect)(function () {
     inputRef.current.indeterminate = indeterminate;
   }, [indeterminate]);
-  return /*#__PURE__*/React.createElement("label", {
+  return /*#__PURE__*/_react["default"].createElement("label", {
     className: cx('switch', textRight && 'switch--textRight', // checked && 'switch--checked',   // if uncontrolled, would require an event listener to determine if checked
     className),
     style: getCustomProps(cssVars)
-  }, /*#__PURE__*/React.createElement("input", {
+  }, /*#__PURE__*/_react["default"].createElement("input", {
     type: "checkbox",
     ref: inputRef,
     checked: checked,
@@ -85,9 +89,9 @@ var Switch = function Switch(_ref3) {
     tabIndex: tabIndex || 0,
     disabled: disabled,
     className: "switch__input"
-  }), /*#__PURE__*/React.createElement("div", {
+  }), /*#__PURE__*/_react["default"].createElement("div", {
     className: "switch__gfx"
-  }), children && /*#__PURE__*/React.createElement("div", {
+  }), children && /*#__PURE__*/_react["default"].createElement("div", {
     className: "switch__label"
   }, children));
 };
