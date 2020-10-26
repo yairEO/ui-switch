@@ -1,19 +1,10 @@
 var gulp = require('gulp'),
-    $ = require( "gulp-load-plugins" )({ pattern:['*', 'gulp-'] }),
-    opts = process.argv.reduce((result, item) => {
-        if( item.indexOf('--') == 0 )
-            result[item.replace('--','')] = 1
-        return result;
-    }, {});
+    $ = require( "gulp-load-plugins" )({ pattern:['*', 'gulp-'] });
 
 const babelConfig = {
     presets: ['@babel/env', ['@babel/preset-react']],
     plugins: ['@babel/proposal-object-rest-spread', '@babel/plugin-transform-destructuring']
 }
-
-
-////////////////////////////////////////////////////
-// Compile main app SCSS to CSS
 
 function scss(){
     return gulp.src('src/*.scss')
@@ -29,18 +20,15 @@ function scss(){
         .pipe(gulp.dest('./dist'))
 }
 
-// https://medium.com/recraftrelic/building-a-react-component-as-a-npm-module-18308d4ccde9
 function react(){
     const umdConf = {
-        exports: function() {
-            return 'Switch';
-        }
+        exports: () => 'Switch'
     }
 
     return gulp.src('src/Switch.react.js')
         .pipe( $.babel(babelConfig))
         .pipe( $.umd(umdConf) )
-       // .pipe( $.uglify() )
+        .pipe( $.uglify() )
         .pipe( gulp.dest('./dist/') )
 }
 
@@ -75,7 +63,6 @@ function watch(){
 const build = gulp.parallel(scss, react)
 
 exports.default = gulp.parallel(build)  // , watch
-exports.react = react
 exports.patch = gulp.series(inc('patch'), gitTag)    // () => inc('patch')
 exports.feature = gulp.series(inc('minor'), gitTag)  // () => inc('minor')
 exports.release = gulp.series(inc('major'), gitTag)  // () => inc('major')
