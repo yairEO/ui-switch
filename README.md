@@ -6,7 +6,6 @@
       <img src="https://img.shields.io/badge/license-MIT-lightgrey" />
   </a>
   <img src="https://img.shields.io/bundlephobia/minzip/@yaireo/ui-switch" />
-  <img src="https://img.shields.io/npm/dw/@yaireo/ui-switch" />
 </p>
 
 <h1 align="center">
@@ -27,6 +26,7 @@
 <br>
 <p>
 
+----
 
 I wanted a solid, beautiful *Switch* component, with absolutly minimal footprint.
 
@@ -35,7 +35,7 @@ but also highly customizable, and [CSS variables](https://github.com/yairEO/ui-s
 are computed on-the-fly, the CSS itself if kept to a minimum, when wanted to create different design versions of the Switch component.
 
 
-## install:
+## Install:
 
 ```
 npm i @yaireo/ui-switch
@@ -51,7 +51,7 @@ import '@yaireo/ui-switch/src/switch.scss'
 ```
 
 ```js
-// use the component in JSX:
+// use in JSX:
 <form>
   <Switch checked={checked} onChange={onSwitchChange}/>
   <Switch textRight>Label on the right</Switch>
