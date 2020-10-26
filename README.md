@@ -22,7 +22,7 @@
 <p align="center">
 <br>
   <a href='https://codepen.io/vsync/pen/gOrVgXV'>
-    <img src="./demo.gif?sanitize=true" />
+    <img src="./demo.png?sanitize=true" />
   </a>
 <br>
 <p>
