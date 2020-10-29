@@ -54,15 +54,10 @@ function gitTag(){
         .pipe($.tagVersion());
 }
 
-function watch(){
-    gulp.watch('./src/*.scss', scss)
-    gulp.watch('./src/Switch.react.js', react)
-}
 
-// const build = gulp.series(gulp.parallel(build_js, scss, polyfills), build_jquery_version, react)
 const build = gulp.parallel(scss, react)
 
-exports.default = gulp.parallel(build)  // , watch
+exports.default = gulp.parallel(build)
 exports.patch = gulp.series(inc('patch'), gitTag)    // () => inc('patch')
 exports.feature = gulp.series(inc('minor'), gitTag)  // () => inc('minor')
 exports.release = gulp.series(inc('major'), gitTag)  // () => inc('major')
