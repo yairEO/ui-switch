@@ -7,6 +7,7 @@ const getCustomProps = cssProps =>
 
 const Switch = ({
   checked,
+  defaultChecked,
   onChange,
   children,
   tabIndex,
@@ -33,6 +34,7 @@ const Switch = ({
         type="checkbox"
         ref={inputRef}
         checked={checked}
+        defaultChecked={defaultChecked}
         onChange={onChange}
         tabIndex={tabIndex||0}
         disabled={disabled}
